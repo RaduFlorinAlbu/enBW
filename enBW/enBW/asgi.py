@@ -12,7 +12,8 @@ import os
 from django.core.asgi import get_asgi_application
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from FastAPI.app import app 
+from FastAPI.app import app
+from fastapi.middleware.cors import CORSMiddleware 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'enBW.settings')
 
@@ -22,7 +23,13 @@ fastapi_app = FastAPI()
 fastapi_app.mount("/myapi", app)
 fastapi_app.mount("/static", StaticFiles(directory="static"), name="static")
 fastapi_app.mount("/django", django_app)
-
+fastapi_app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 
 @fastapi_app.get("/api")

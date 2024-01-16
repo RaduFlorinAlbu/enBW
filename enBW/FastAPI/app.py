@@ -25,6 +25,12 @@ def read_event(bucket_name: str):
         raise HTTPException(status_code=404, detail="Bucket not found") 
     events_info = [{"title": event_dict["title"], "message": event_dict["message"]} for event in bucket.events.all() for event_dict in [model_to_dict(event)]]
     return events_info
+
+@app.get("/buckets")
+def read_event():
+    buckets = Bucket.objects.all()
+    bucket_list = [{"id": bucket_dict["id"],"name": bucket_dict["name"]} for bucket in buckets for bucket_dict in [model_to_dict(bucket)]]
+    return bucket_list
     
 @app.put("/{bucket_name}")
 def store_event(bucket_name: str, event_title: str, event_message: str):
