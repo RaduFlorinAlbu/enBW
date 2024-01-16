@@ -1,0 +1,19 @@
+div {
+    background-color: #87CEEB; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    h2 {
+      margin-bottom: 20px; 
+    }
+  
+    button {
+      margin: 10px; 
+      width: 200px; 
+    }
+  }
+  
