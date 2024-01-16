@@ -1,0 +1,27 @@
+<div> 
+    <div>
+        <h4>Select a bucket</h4>
+        <mat-form-field>
+          <mat-label>Bucket</mat-label>
+          <select matNativeControl required>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </mat-form-field> 
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Event title</mat-label>
+            <input matInput placeholder="Ex. Data Error" [(ngModel)]="title">
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Event Message</mat-label>
+            <input matInput placeholder="Ex. Production error happened because..." [(ngModel)]="message">
+          </mat-form-field>
+        <button mat-raised-button (click)="storeEvent()">
+            Store Event
+        </button>  
+    </div>
+</div>
