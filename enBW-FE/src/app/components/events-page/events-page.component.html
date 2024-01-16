@@ -3,11 +3,8 @@
         <h4>Select a bucket</h4>
         <mat-form-field>
           <mat-label>Bucket</mat-label>
-          <select matNativeControl required>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+          <select matNativeControl required [(ngModel)]="selectedBucketId">
+            <option *ngFor="let bucket of bucketList" [value]='bucket.id'>{{bucket.name}}</option>
           </select>
         </mat-form-field> 
     </div>
