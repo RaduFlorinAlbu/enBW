@@ -12,13 +12,14 @@ import os
 from django.core.asgi import get_asgi_application
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from FastAPI.app import app 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'enBW.settings')
 
 django_app = get_asgi_application()
 fastapi_app = FastAPI() 
 
-print("Mounting before happening")
+fastapi_app.mount("/myapi", app)
 fastapi_app.mount("/static", StaticFiles(directory="static"), name="static")
 fastapi_app.mount("/django", django_app)
 
