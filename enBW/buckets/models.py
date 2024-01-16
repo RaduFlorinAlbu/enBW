@@ -4,3 +4,5 @@ from validators import bucket_name_validator
 class Bucket(models.Model):
     name = models.CharField(max_length = 100, default=None, blank=False, validators=[bucket_name_validator])
     
+    def __str__(self):
+        return self.name
