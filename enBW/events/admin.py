@@ -5,5 +5,5 @@ class EventAdmin(admin.ModelAdmin):
     def bucket_name(self, obj):
         return obj.bucket.name or "-"
     list_display = ["id", "uuid", "title", "bucket_name"]
-# Register your models here.
+
 admin.site.register(Event, EventAdmin)
