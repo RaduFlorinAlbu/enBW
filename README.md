@@ -81,10 +81,11 @@ To avoid errors, there is already a selected bucket at launch of page, which wil
 
 Technical Details:
 * Because we are using Django, wich is ORM, and we are already using models, i did not use the pydantic models specific to FastAPI, I used the already existing ones ( I created one pydantic model as proof of implementation, but not needed with django )
+* Database tables buckets and events are connected using a OneToMany relationship ( A bucket can contain multiple events, but an event can be in a single bucket). I approached this for logic, not using ManyToMany relationship, even though easier to implement, because i expected a message cannot be in DataErros and ConnectionErrors in the same time.
 * Inside the project, a utils.py file can be found with configuration settings ( this is minimalistic for now as we only fetch some text). This is a practice of mine so i do store default values, enpoints for other apps (ex. for messaging, emailing, etc) so we do not hardcode these everytime we need them. Also uses caching, which saves run time
-* Try/except cases are all around the project for good event monitoring, but needs Sentry integration or something alike for all the errors to be displayed in the Sentry account 
+* Try/except cases are all around the project for good event monitoring, all the errors should appear in the terminal where the script is run. Would suggest Sentry integration.
 * Regex Validator created in a different file for better organization and applied into the model, not into the form (explained why in code comment)
-
+* Even though there are plenty error catching mecahism, the code is written so it is hardly probable to get any (initialised instances with defaults, a bucket auto-selected when opening user access page, not being able to create random requests). The purpose of the application is to run smoothly, not prove error catching mechanism
 ----------------------------------------------------------------------------
 
 Further development notes:
