@@ -1,5 +1,5 @@
-# enBW
-Documentation EventHandler
+# Project Documentation and instructions
+EventHandler
 
 This project is an Event Handler than can be used to store events and group them in buckets.
 We can make interrogations about buckets and events for user purposes
