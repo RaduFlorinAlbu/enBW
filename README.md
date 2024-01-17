@@ -73,6 +73,9 @@ Use:
 This is the user interface, to make the http requests mentioned in the task.
 This has been made to avoid testing the APIs with external software such as postman, everything should be testable from here
 Due to lack of time to customize the page even more, some request returns can be seen only in the console ( right click on the page -> inspect -> console )
+There is a button to store event, and to fetch event uuids from selected bucket.
+The displayed UUIDs are also buttons, and the event information appears on click of any of those.
+To avoid errors, there is already a selected bucket at launch of page, which will always be the first bucket in our database
 
 ----------------------------------------------------------------------------
 
