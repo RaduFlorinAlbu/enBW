@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#ukaesuepw$kgzknqp^f)li0kwz_rzs^0u-6$di1a0o55!p*nf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0' , 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'events',
-    "buckets",
-    "FastAPI.app"
+    "buckets"
 ]
 
 MIDDLEWARE = [

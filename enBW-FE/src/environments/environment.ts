@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    endpoint: 'http://localhost:8000/myapi/'
+    endpoint: 'http://0.0.0.0:8000/myapi/' //for docker environment
 }

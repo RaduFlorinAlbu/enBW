@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
   goToAdmin(): void{
-    window.location.href = 'http://127.0.0.1:8000/django/admin'
+    window.location.href = 'http://0.0.0.0:8000/django/admin'
   }
 }

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    build: ./enBW
+    volumes:
+      - ./enBW:/app
+      - ./enBW/db.sqlite3:/app/db.sqlite3
+    ports:
+      - "8000:8000"
+  frontend:
+    build: ./enBW-FE
+    ports:
+      - "80:80"
