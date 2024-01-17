@@ -21,7 +21,7 @@ export class EventsDataService {
   constructor(private httpClient: HttpClient) { }
 
   getBuckets(): Observable<Bucket[]>{
-    return this.httpClient.get<Bucket[]>(environment.endpoint+'buckets')
+    return this.httpClient.get<Bucket[]>(environment.endpoint+'data/buckets')
   }
 
   storeEvent(bucketId: number, title: string, message: string): Observable<string>{

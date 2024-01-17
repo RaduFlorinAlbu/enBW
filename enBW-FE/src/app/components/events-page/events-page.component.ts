@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Bucket, EventsDataService } from 'src/app/services/events-data.service';
+import { Bucket, EventData, EventsDataService } from 'src/app/services/events-data.service';
 
 
 @Component({
@@ -13,6 +13,8 @@ export class EventsPageComponent implements OnInit
   message: string = ''
   bucketList: Bucket[] = []
   selectedBucketId: number = -1;
+  eventUUIDs: string[] = [];
+  selectedEvent: EventData | undefined;
 
   constructor(private eventsDataService: EventsDataService) {}
 
@@ -31,10 +33,12 @@ export class EventsPageComponent implements OnInit
   }
 
   getEventUUids(){
-    this.eventsDataService.getEvents(this.selectedBucketId).subscribe((val) => console.log(val))
+    this.eventsDataService.getEvents(this.selectedBucketId).subscribe((val) => {console.log(val)
+    this.eventUUIDs=val})
   }
 
-  getEventById(){
-    this.eventsDataService.getEventById(this.selectedBucketId, "selectedEventUUID").subscribe((val) => console.log(val))
+  getEventById(id: string){
+    this.eventsDataService.getEventById(this.selectedBucketId, id).subscribe((val) => {console.log(val)
+    this.selectedEvent = val})
   }
 }

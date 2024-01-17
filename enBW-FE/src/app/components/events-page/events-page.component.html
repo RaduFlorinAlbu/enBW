@@ -21,4 +21,36 @@
             Store Event
         </button>  
     </div>
+    <div>
+        <h4>Events UUIDs</h4>
+        <div>
+            <button mat-raised-button (click)="getEventUUids()">
+                Get event UUIDs from bucket
+            </button> 
+            <div>
+                <button mat-raised-button *ngFor="let event of eventUUIDs" (click)="getEventById(event)">
+                    {{event}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedEvent">
+        <h4>
+            Selected Event Data
+        </h4>
+        <div>
+            <div>
+                <h5>
+                    Event Title
+                </h5>
+                <p>{{selectedEvent.title}}</p>
+            </div>
+            <div>
+                <h5>
+                    Event Message
+                </h5>
+                <p>{{selectedEvent.message}}</p>
+            </div>
+        </div>
+    </div>
 </div>
