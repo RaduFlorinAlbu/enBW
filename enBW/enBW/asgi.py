@@ -20,7 +20,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'enBW.settings')
 django_app = get_asgi_application()
 fastapi_app = FastAPI() 
 
-fastapi_app.mount("/myapi", app)
+fastapi_app.mount("/v1", app)
 fastapi_app.mount("/static", StaticFiles(directory="static"), name="static")
 fastapi_app.mount("/django", django_app)
 fastapi_app.add_middleware(

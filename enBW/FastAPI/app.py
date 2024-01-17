@@ -1,5 +1,5 @@
 from FastAPI.django_setup import setup_django
-setup_django() #fuction moved before imports because models imports depend on it
+setup_django() # moved on top because models imports depend on it
 from fastapi import FastAPI, HTTPException
 from events.models import Event
 from buckets.models import Bucket
@@ -27,11 +27,11 @@ def read_event(bucket_id: str):
         bucket = Bucket.objects.get(id=bucket_id)
     except Bucket.DoesNotExist:
         raise HTTPException(status_code=404, detail="Bucket not found")
-    #manually created dict as model_to_dict misbehaves with UUIDFields 
-    events_info = [{'uuid': str(event.uuid)} for event in bucket.events.all()]
+    #manually created dict as model_to_dict misbehaves in model_to_dict function with UUIDFields 
+    events_info = [{str(event.uuid)} for event in bucket.events.all()]
     return events_info
 
-@app.get("/buckets")
+@app.get("/data/buckets")
 def read_event_uuid():
     buckets = Bucket.objects.all()
     bucket_list = [{"id": bucket_dict["id"],"name": bucket_dict["name"]} for bucket in buckets for bucket_dict in [model_to_dict(bucket)]]
